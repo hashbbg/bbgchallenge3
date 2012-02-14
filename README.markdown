@@ -1,6 +1,6 @@
 # Browser-Based game competition
 
-(#bbg)[http://hashbbg.com] is having its third semi-monthly game creation challenge!  A genre will be randomly selected, and, during the next month, contestants will have 12 hours to spend on creating code, art and music for an original game.
+[#bbg](http://hashbbg.com) is having its third semi-monthly game creation challenge!  A genre will be randomly selected, and, during the next month, contestants will have 12 hours to spend on creating code, art and music for an original game.
 
 All the entries will be open sourced, too, so feel free to have a look at anyone's source code after the fact.  
 
