@@ -32,6 +32,10 @@ One of these will be randomly selected! I'll announce which by twitter at the st
 
 ## Rules
 
+#### Submission
+
+Fork my repo, create a folder for your entry, then pull request me when you're done.
+
 #### Content restriction
 
 * Use only content you have a legal right to.
