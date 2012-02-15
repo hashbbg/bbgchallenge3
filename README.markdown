@@ -10,7 +10,11 @@ The contest starts on 15th Feb, 5pm GMT, and finishes 15th March, 5pm GMT.
 
 #### Genre List:
 
-One of these will be randomly selected! I'll announce which by twitter at the start of the challenge.
+The genre is:
+
+## Turn-based War Strat
+
+It was randomly selected from the list below at the very start of the contest:
 
 * beat-em-up (a la streets of rage)
 * FPS
