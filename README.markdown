@@ -26,7 +26,7 @@ It was randomly selected from the list below at the very start of the contest:
 * puzzle
 * point & click adventure
 * jRPG (a la final fantasy)
-* turn-based war strat (a la advance wars)
+* turn-based war strat
 * RTS
 * text-based adventure (predominantly text, other media used for mood)
 * dating sim
