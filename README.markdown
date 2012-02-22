@@ -2,6 +2,8 @@
 
 [#bbg](http://hashbbg.com) is having its third semi-monthly game creation challenge!  A genre will be randomly selected, and, during the next month, contestants will have 12 hours to spend on creating code, art and music for an original game.
 
+If you have an itch to work with friends, then feel free to team up and submit a team entry.  Every member has 12 hours, and the size of your team has to be disclosed with your submission.
+
 All the entries will be open sourced, too, so feel free to have a look at anyone's source code after the fact.  
 
 #### Dates!
