@@ -2,6 +2,8 @@
 
 [#bbg](http://hashbbg.com) is having its third semi-monthly game creation challenge!  A genre will be randomly selected, and, during the next month, contestants will have 12 hours to spend on creating code, art and music for an original game.
 
+If you have an itch to work with friends, then feel free to team up and submit a team entry.  Every member has 12 hours, and the size of your team has to be disclosed with your submission.
+
 All the entries will be open sourced, too, so feel free to have a look at anyone's source code after the fact.  
 
 #### Dates!
@@ -10,7 +12,11 @@ The contest starts on 15th Feb, 5pm GMT, and finishes 15th March, 5pm GMT.
 
 #### Genre List:
 
-One of these will be randomly selected! I'll announce which by twitter at the start of the challenge.
+The genre is:
+
+## Turn-based War Strat
+
+It was randomly selected from the list below at the very start of the contest:
 
 * beat-em-up (a la streets of rage)
 * FPS
@@ -22,7 +28,7 @@ One of these will be randomly selected! I'll announce which by twitter at the st
 * puzzle
 * point & click adventure
 * jRPG (a la final fantasy)
-* turn-based war strat (a la advance wars)
+* turn-based war strat
 * RTS
 * text-based adventure (predominantly text, other media used for mood)
 * dating sim
