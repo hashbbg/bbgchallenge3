@@ -42,7 +42,8 @@ $(document).ready(function() {
         }
 
         turn.players = players;
-        turn.generateListOfAccessibleCells();
+        turn.generateMatrixOfAccessibleCells();
+        turn.generateMatrixOfEnnemyUnits();
         //~ turn.start();
     });
 
