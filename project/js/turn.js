@@ -29,7 +29,7 @@
             return this.players[ (this.current + 1) % 2 ];
         },
 
-        generateListOfAccessibleCells: function() {
+        generateMatrixOfAccessibleCells: function() {
             var player = this.getActivePlayer(),
                 inactivePlayer = this.getInactivePlayer(),
                 units = player.units,
@@ -70,9 +70,46 @@
             return REACH.accessibleCells = accessibleCells;
         },
 
+        generateMatrixOfEnnemyUnits: function() {
+            var ennemyUnits = getEmptyCellsMatrix(REACH.config.width, REACH.config.height),
+                player = this.getInactivePlayer(),
+                units = player.units,
+                u, unit;
+
+            for (u in units) {
+                unit = units[u];
+                ennemyUnits[unit.gridX][unit.gridY] = unit;
+            }
+
+            return REACH.ennemyUnits = ennemyUnits;
+        },
+
+        move: function() {
+            var player = this.getActivePlayer(),
+                units = player.units;
+
+            for (u in units) {
+                units[u].move();
+            }
+        },
+
+        attack: function() {
+            var player = this.getActivePlayer(),
+                units = player.units;
+
+            for (u in units) {
+                units[u].attack();
+            }
+        },
+
         nextTurn: function() {
+            // Move units and then make them attack
+            this.move().attack();
+
+            // Go to next turn
             this.current++;
-            this.generateListOfAccessibleCells();
+            this.generateMatrixOfAccessibleCells();
+            this.generateMatrixOfEnnemyUnits();
         },
     });
 
