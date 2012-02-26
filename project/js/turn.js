@@ -84,6 +84,20 @@
             return REACH.ennemyUnits = ennemyUnits;
         },
 
+        generateMatrixOfFriendlyUnits: function() {
+            var friendlyUnits = getEmptyCellsMatrix(REACH.config.width, REACH.config.height),
+                player = this.getActivePlayer(),
+                units = player.units,
+                u, unit;
+
+            for (u in units) {
+                unit = units[u];
+                friendlyUnits[unit.gridX][unit.gridY] = unit;
+            }
+
+            return REACH.friendlyUnits = friendlyUnits;
+        },
+
         move: function() {
             var player = this.getActivePlayer(),
                 units = player.units;
@@ -108,8 +122,14 @@
 
             // Go to next turn
             this.current++;
+            this.startTurn();
+        },
+
+        startTurn: function() {
+            REACH.activePlayer = this.getActivePlayer();
             this.generateMatrixOfAccessibleCells();
             this.generateMatrixOfEnnemyUnits();
+            this.generateMatrixOfFriendlyUnits();
         },
     });
 

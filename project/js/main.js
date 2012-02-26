@@ -42,9 +42,7 @@ $(document).ready(function() {
         }
 
         turn.players = players;
-        turn.generateMatrixOfAccessibleCells();
-        turn.generateMatrixOfEnnemyUnits();
-        //~ turn.start();
+        turn.startTurn();
     });
 
     Crafty.scene('game');
