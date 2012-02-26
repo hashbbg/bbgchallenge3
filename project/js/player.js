@@ -1,7 +1,7 @@
 Crafty.c('Player', {
     color: 'black',
     playerNumber: 0,
-    spawnLines: [],
+    spawnCells: [],
     units: [],
 
     player: function(playerNumber) {
@@ -15,16 +15,22 @@ Crafty.c('Player', {
         else {
             throw 'Player number out of range !';
         }
-        this._setSpawnLines();
+        this._initSpawnCells();
         return this;
     },
 
-    _setSpawnLines: function() {
+    _initSpawnCells: function() {
+        var indexY;
         if (this.playerNumber === 1) {
-            this.spawnLines.push(9);
+            indexY = REACH.config.height - 1;
         }
         else {
-            this.spawnLines.push(0);
+            indexY = 0;
+        }
+
+        for (indexX = 0; indexX < REACH.config.width - 1; indexX++)
+        {
+            this.spawnCells.push([indexX, indexY]);
         }
     }
 });
