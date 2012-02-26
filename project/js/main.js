@@ -13,7 +13,16 @@ $(document).ready(function() {
 
     Crafty.scene('game', function() {
         Crafty.sprite(1, 'img/grass.png', {
-            'cell': [0, 0]
+            'cell-0': [0, 0]
+        });
+        Crafty.sprite(1, 'img/stone.png', {
+            'cell-1': [0, 0]
+        });
+        Crafty.sprite(1, 'img/wood.png', {
+            'cell-2': [0, 0]
+        });
+        Crafty.sprite(1, 'img/dirt.png', {
+            'cell-3': [0, 0]
         });
 
         var map = Crafty.e('Map').map(REACH.config.width, REACH.config.height);

@@ -13,11 +13,14 @@ Crafty.c('Map', {
             this.cells[i] = [];
 
             for (j = 0; j < width; j++) {
-                var posx = j * REACH.config.cell.width,
-                    posy = i * REACH.config.cell.height - i * 88;
+                var posX = j * REACH.config.cell.width,
+                    posY = i * REACH.config.cell.height - i * 88,
+                    max = 3, min = 0,
+                    cellType = Math.floor(Math.random() * (max - min + 1)) + min;
 
-                this.cells[i][j] = Crafty.e('2D, DOM, cell').attr({x: posx, y: posy, w: REACH.config.cell.width, h: REACH.config.cell.height});
+                this.cells[i][j] = Crafty.e('Cell, cell-' + cellType.toString()).attr({x: posX, y: posY, w: REACH.config.cell.width, h: REACH.config.cell.height});
             }
         }
+        return this;
     }
 });
