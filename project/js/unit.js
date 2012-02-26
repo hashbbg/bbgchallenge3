@@ -64,5 +64,9 @@ Crafty.c('Unit', {
         }
 
         return inaccessibleCells;
+    },
+
+    getListOfReachableCells: function() {
+        return this.getListOfInaccessibleCells();
     }
 });
