@@ -14,7 +14,7 @@ Crafty.c('Map', {
 
             for (j = 0; j < width; j++) {
                 var posX = j * REACH.config.cell.width,
-                    posY = i * REACH.config.cell.height - i * 88,
+                    posY = i * REACH.config.cell.height - i * (REACH.config.cell.offsetTopY + REACH.config.cell.offsetBottomY),
                     max = 3, min = 0,
                     cellType = Math.floor(Math.random() * (max - min + 1)) + min;
 
