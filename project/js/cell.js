@@ -8,6 +8,11 @@ Crafty.c('Cell', {
                 console.log('clicked '+this.gridX+', '+this.gridY);
                 if (REACH.accessibleCells[this.gridX][this.gridY] !== null) {
                     console.log('YOUPI');
+                    var unit = Crafty.e('Unit, unit-blue')
+                        .unit(REACH.activePlayer, this.gridX, this.gridY)
+                        .css('z-index', 200);
+                    REACH.activePlayer.units.push(unit);
+                    REACH.turn.nextTurn();
                 }
             })
             .areaMap(new Crafty.polygon(
@@ -23,5 +28,5 @@ Crafty.c('Cell', {
         this.gridX = gridX;
         this.gridY = gridY;
         return this;
-    }
+    },
 });
