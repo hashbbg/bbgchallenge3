@@ -1,0 +1,15 @@
+/* Generic styles */
+body {
+    background-color: black;
+    color: white;
+}
+h1 {
+    font: 4.0em bold;
+    text-align: center;
+}
+
+/* Game styles */
+#cr-stage {
+    color: black;
+    margin: auto;
+}
