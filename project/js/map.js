@@ -18,7 +18,9 @@ Crafty.c('Map', {
                     max = 3, min = 0,
                     cellType = Math.floor(Math.random() * (max - min + 1)) + min;
 
-                this.cells[i][j] = Crafty.e('Cell, cell-' + cellType.toString()).attr({x: posX, y: posY, w: REACH.config.cell.width, h: REACH.config.cell.height});
+                this.cells[i][j] = Crafty.e('Cell, cell-' + cellType.toString())
+                    .attr({x: posX, y: posY, w: REACH.config.cell.width, h: REACH.config.cell.height})
+                    .cell(j, i);
             }
         }
         return this;
