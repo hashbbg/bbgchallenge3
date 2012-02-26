@@ -6,6 +6,9 @@ Crafty.c('Cell', {
         this.requires('2D, DOM, Mouse')
             .bind('Click', function() {
                 console.log('clicked '+this.gridX+', '+this.gridY);
+                if (REACH.accessibleCells[this.gridX][this.gridY] !== null) {
+                    console.log('YOUPI');
+                }
             })
             .areaMap(new Crafty.polygon(
                 [0, REACH.config.cell.offsetTopY],
