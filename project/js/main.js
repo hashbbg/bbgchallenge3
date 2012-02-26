@@ -34,7 +34,7 @@ $(document).ready(function() {
 
         var map = Crafty.e('Map').map(REACH.config.width, REACH.config.height);
 
-        var turn = Crafty.e('Turn');
+        var turn = REACH.turn = Crafty.e('Turn');
 
         var players = [];
         for (i = 0; i < 2; i++) {
