@@ -3,6 +3,7 @@ Crafty.c('Unit', {
     gridY: 0,
     healthPoint: 1,
     attackValue: 1,
+    moveY: 1,
     player: null,
 
     init: function() {
@@ -25,15 +26,43 @@ Crafty.c('Unit', {
     },
 
     move: function() {
+        var direction = -1;
+        if (this.player.playerNumber === 1) {
+            direction = 1;
+        }
 
+        if (REACH.ennemyUnits[ this.gridX ][ this.gridY + direction * this.moveY  ] !== null
+            || REACH.friendlyUnits[ this.gridX ][ this.gridY + direction * this.moveY  ] !== null) {
+            return false;
+        }
+
+        this.gridY = this.gridY + direction * this.moveY;
+
+        if (this.player.playerNumber === 1 && this.gridY === 0) {
+            console.log('Player 1 got a point !');
+        } else if (this.player.playerNumber === 2 && this.gridY === REACH.config.height - 1) {
+            console.log('Player 2 got a point !');
+        }
+
+        return true;
     },
 
     attack: function() {
-
+        var reachableCells = this.getListOfReachableCells();
+        for (i = 0; i < reachableCells.length; i++)
+        {
+            var ennemyUnit = REACH.ennemyUnits[ reachableCells[i][0] ][ reachableCells[i][1]  ];
+            if (ennemyUnit !== null) {
+                ennemyUnit.healthPoint -= this.attackValue;
+                if (ennemyUnit.healthPoint <= 0) {
+                    ennemyUnit.die();
+                }
+            }
+        }
     },
 
     die: function() {
-
+        console.log('Player '+this.player.playerNumber+' lost a unit !');
     },
 
     getListOfAccessibleCells: function() {
@@ -74,5 +103,9 @@ Crafty.c('Unit', {
         }
 
         return inaccessibleCells;
+    },
+
+    getListOfReachableCells: function() {
+        return this.getListOfInaccessibleCells();
     }
 });
