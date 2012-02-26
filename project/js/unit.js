@@ -9,9 +9,19 @@ Crafty.c('Unit', {
         this.requires('2D, DOM');
     },
 
-    unit: function(player) {
+    unit: function(player, gridX, gridY) {
         this.player = player;
+        this.gridX = gridX;
+        this.gridY = gridY;
+        this.updatePosition();
         return this;
+    },
+
+    updatePosition: function() {
+        this.x = this.gridX * REACH.config.cell.width;
+        this.y = this.gridY * REACH.config.cell.height - this.gridY * (REACH.config.cell.offsetTopY + REACH.config.cell.offsetBottomY);
+        this.w = REACH.config.cell.width;
+        this.h = REACH.config.cell.height;
     },
 
     move: function() {
