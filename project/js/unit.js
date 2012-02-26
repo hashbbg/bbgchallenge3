@@ -25,10 +25,10 @@ Crafty.c('Unit', {
         this.h = REACH.config.cell.height;
     },
 
-    move: function() {
-        var direction = -1;
+    moveForward: function() {
+        var direction = 1;
         if (this.player.playerNumber === 1) {
-            direction = 1;
+            direction = -1;
         }
 
         if (REACH.ennemyUnits[ this.gridX ][ this.gridY + direction * this.moveY  ] !== null
@@ -44,12 +44,15 @@ Crafty.c('Unit', {
             console.log('Player 2 got a point !');
         }
 
+        this.updatePosition();
+
         return true;
     },
 
     attack: function() {
         var reachableCells = this.getListOfReachableCells();
-        for (i = 0; i < reachableCells.length; i++)
+        console.log(reachableCells);
+        for (var i = 0; i < reachableCells.length; i++)
         {
             var ennemyUnit = REACH.ennemyUnits[ reachableCells[i][0] ][ reachableCells[i][1]  ];
             if (ennemyUnit !== null) {
@@ -63,6 +66,7 @@ Crafty.c('Unit', {
 
     die: function() {
         console.log('Player '+this.player.playerNumber+' lost a unit !');
+        this.destroy();
     },
 
     getListOfAccessibleCells: function() {

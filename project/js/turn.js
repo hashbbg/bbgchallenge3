@@ -66,7 +66,14 @@
                 accessibleCells[ cell[0] ][ cell[1] ] = cell;
             }
 
-            // accessible cells = 1 - 2 + 3
+            // get 4. cells occupied by friendly units
+            units = player.units;
+            for (u in units) {
+                unit = units[u];
+                accessibleCells[ unit.gridX ][ unit.gridY ] = null;
+            }
+
+            // accessible cells = 1 - 2 + 3 - 4
             return REACH.accessibleCells = accessibleCells;
         },
 
@@ -99,24 +106,31 @@
         },
 
         move: function() {
+            console.log('Move units');
             var player = this.getActivePlayer(),
                 units = player.units;
 
             for (u in units) {
-                units[u].move();
+                units[u].moveForward();
+                // TODO
+                // if moved, refresh matrix of friendly units
             }
+            return this;
         },
 
         attack: function() {
+            console.log('Attack units');
             var player = this.getActivePlayer(),
                 units = player.units;
 
             for (u in units) {
                 units[u].attack();
             }
+            return this;
         },
 
         nextTurn: function() {
+            console.log('Next turn');
             // Move units and then make them attack
             this.move().attack();
 

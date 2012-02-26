@@ -17,13 +17,16 @@
         return spawnCells;
     }
 
-    Crafty.c('Player', {
-        color: 'black',
-        playerNumber: 0,
-        spawnCells: [],
-        units: [],
+    var Player = function() {
+        this.color = 'black';
+        this.playerNumber = 0;
+        this.spawnCells = null;
+        this.units = null;
+    };
 
+    Player.prototype = {
         player: function(playerNumber) {
+            this.units = [];
             this.playerNumber = playerNumber;
             if (playerNumber === 1) {
                 this.color = 'blue';
@@ -41,6 +44,8 @@
         getListOfAccessibleCells: function() {
             return this.spawnCells;
         },
-    });
+    };
+
+    Crafty.c('Player', new Player());
 
 })(window.Crafty, window.REACH);
