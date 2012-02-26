@@ -43,5 +43,26 @@ Crafty.c('Unit', {
         if (this.gridX < REACH.config.width - 1) {
             accessibleCells.push([this.gridX + 1, this.gridY]);
         }
+
+        return accessibleCells;
+    },
+
+    getListOfInaccessibleCells: function() {
+        var inaccessibleCells = [];
+
+        if (this.gridX > 0) {
+            inaccessibleCells.push([this.gridX - 1, this.gridY]);
+        }
+        if (this.gridX < REACH.config.width - 1) {
+            inaccessibleCells.push([this.gridX + 1, this.gridY]);
+        }
+        if (this.gridY > 0) {
+            inaccessibleCells.push([this.gridX, this.gridY - 1]);
+        }
+        if (this.gridY < REACH.config.height - 1) {
+            inaccessibleCells.push([this.gridX, this.gridY + 1]);
+        }
+
+        return inaccessibleCells;
     }
 });
