@@ -11,5 +11,16 @@ $(document).ready(function() {
                 .css({ 'text-align': 'center' });
     });
 
+    var displayMap = function(map) {
+        var width = REACH.config.width,
+            height = REACH.config.height,
+            i, j;
+
+        for (i = 0; i < height; i++) {
+            for (j = 0; j < width; j++) {
+            }
+        }
+    };
+
     Crafty.scene('loading');
 });
