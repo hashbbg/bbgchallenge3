@@ -1,6 +1,7 @@
 $(document).ready(function() {
     var stageHeight = REACH.config.height * REACH.config.cell.height,
-        stageWidth = REACH.config.width * REACH.config.cell.width;
+        stageWidth = REACH.config.width * REACH.config.cell.width,
+        i;
 
     Crafty.init(stageWidth, stageHeight);
 
@@ -24,8 +25,25 @@ $(document).ready(function() {
         Crafty.sprite(1, 'img/dirt.png', {
             'cell-3': [0, 0]
         });
+        Crafty.sprite(1, 'img/unit-orange.png', {
+            'unit-orange': [0, 0]
+        });
+        Crafty.sprite(1, 'img/unit-blue.png', {
+            'unit-blue': [0, 0]
+        });
 
         var map = Crafty.e('Map').map(REACH.config.width, REACH.config.height);
+
+        var turn = Crafty.e('Turn');
+
+        var players = [];
+        for (i = 0; i < 2; i++) {
+            players[i] = Crafty.e('Player').player(i + 1);
+        }
+
+        turn.players = players;
+        turn.generateListOfAccessibleCells();
+        //~ turn.start();
     });
 
     Crafty.scene('game');
