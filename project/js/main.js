@@ -11,16 +11,13 @@ $(document).ready(function() {
                 .css({ 'text-align': 'center' });
     });
 
-    var displayMap = function(map) {
-        var width = REACH.config.width,
-            height = REACH.config.height,
-            i, j;
+    Crafty.scene('game', function() {
+        Crafty.sprite(1, 'img/grass.png', {
+            'cell': [0, 0]
+        });
 
-        for (i = 0; i < height; i++) {
-            for (j = 0; j < width; j++) {
-            }
-        }
-    };
+        var map = Crafty.e('Map').map(REACH.config.width, REACH.config.height);
+    });
 
-    Crafty.scene('loading');
+    Crafty.scene('game');
 });
