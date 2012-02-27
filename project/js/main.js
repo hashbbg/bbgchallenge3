@@ -32,7 +32,7 @@ $(document).ready(function() {
             'unit-blue': [0, 0]
         });
 
-        var map = Crafty.e('Map').map(REACH.config.width, REACH.config.height);
+        var map = REACH.turn = Crafty.e('Map').map(REACH.config.width, REACH.config.height);
 
         var turn = REACH.turn = Crafty.e('Turn');
 

@@ -28,4 +28,12 @@ Crafty.c('Cell', {
         this.gridY = gridY;
         return this;
     },
+
+    highlight: function() {
+        this.sprite(0,REACH.config.cell.height,REACH.config.cell.width,REACH.config.cell.height);
+    },
+
+    unhighlight: function() {
+        this.sprite(0,0,REACH.config.cell.width,REACH.config.cell.height);
+    },
 });

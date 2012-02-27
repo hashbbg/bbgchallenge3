@@ -140,10 +140,12 @@
         },
 
         startTurn: function() {
+            REACH.map.displayAccessibleCells(false);
             REACH.activePlayer = this.getActivePlayer();
             this.generateMatrixOfAccessibleCells();
             this.generateMatrixOfEnnemyUnits();
             this.generateMatrixOfFriendlyUnits();
+            REACH.map.displayAccessibleCells(true);
         },
     });
 
