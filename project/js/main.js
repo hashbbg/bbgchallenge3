@@ -27,7 +27,7 @@ $(document).ready(function() {
             'unit-blue': [4 * REACH.config.cell.width, REACH.config.cell.height],
         });
 
-        var map = REACH.turn = Crafty.e('Map').map(REACH.config.width, REACH.config.height);
+        var map = REACH.map = Crafty.e('Map').map(REACH.config.width, REACH.config.height);
 
         var turn = REACH.turn = Crafty.e('Turn');
 
