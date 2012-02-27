@@ -3,6 +3,11 @@ $(document).ready(function() {
         stageWidth = REACH.config.width * REACH.config.cell.width,
         i;
 
+    // create a function to call when a player wins
+    REACH.win = function(player) {
+        console.log('Player ' + player.playerNumber + ' won!');
+    };
+
     Crafty.init(stageWidth, stageHeight);
 
     Crafty.scene('loading', function() {

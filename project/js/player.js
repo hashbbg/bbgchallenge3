@@ -22,6 +22,7 @@
         this.playerNumber = 0;
         this.spawnCells = null;
         this.units = null;
+        this.points = 0;
     };
 
     Player.prototype = {
@@ -43,6 +44,13 @@
 
         getListOfAccessibleCells: function() {
             return this.spawnCells;
+        },
+
+        increasePoints: function() {
+            this.points++;
+            if (this.points >= REACH.config.pointsToWin) {
+                REACH.win(this);
+            }
         },
     };
 

@@ -2,6 +2,8 @@
 REACH = window.REACH || {};
 
 REACH.config = {
+    pointsToWin: 3,
+
     width: 10,  // number of cells
     height: 10,  // number of cells
     cell: {
