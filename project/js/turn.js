@@ -108,13 +108,20 @@
         move: function() {
             console.log('Move units');
             var player = this.getActivePlayer(),
-                units = player.units,
-                unit = {};
+                units = player.units.slice(),
+                unit = {},
+                res = null;
 
             for (u in units) {
                 unit.gridX = units[u].gridX;
                 unit.gridY = units[u].gridY;
-                if (units[u].moveForward()) {
+                res = units[u].moveForward();
+                if (res === null) {
+                    // the unit reached the opposite line and disappeared, remove it from the matrix
+                    REACH.friendlyUnits[unit.gridX][unit.gridY] = null;
+                }
+                else if (res === true) {
+                    // the unit moved, update it's position
                     REACH.friendlyUnits[unit.gridX][unit.gridY] = null;
                     REACH.friendlyUnits[units[u].gridX][units[u].gridY] = units[u];
                 }
