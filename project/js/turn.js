@@ -159,6 +159,7 @@
             this.generateMatrixOfEnnemyUnits();
             this.generateMatrixOfFriendlyUnits();
             REACH.map.displayAccessibleCells(true);
+            REACH.updateUI(this);
         },
     });
 

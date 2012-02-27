@@ -8,6 +8,10 @@ $(document).ready(function() {
         console.log('Player ' + player.playerNumber + ' won!');
     };
 
+    REACH.updateUI = function(turn) {
+        $('#current-player').text(turn.getActivePlayer().playerNumber);
+    };
+
     Crafty.init(stageWidth, stageHeight);
 
     Crafty.scene('loading', function() {
