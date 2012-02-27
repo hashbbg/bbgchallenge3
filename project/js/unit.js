@@ -66,6 +66,7 @@ Crafty.c('Unit', {
 
     die: function() {
         console.log('Player '+this.player.playerNumber+' lost a unit !');
+        this.player.units.splice(this.player.units.indexOf(this), 1);
         this.destroy();
     },
 
