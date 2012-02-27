@@ -38,10 +38,11 @@ Crafty.c('Unit', {
 
         this.gridY = this.gridY + direction * this.moveY;
 
-        if (this.player.playerNumber === 1 && this.gridY === 0) {
-            console.log('Player 1 got a point !');
-        } else if (this.player.playerNumber === 2 && this.gridY === REACH.config.height - 1) {
-            console.log('Player 2 got a point !');
+        if ((this.player.playerNumber === 1 && this.gridY === 0) ||
+            (this.player.playerNumber === 2 && this.gridY === REACH.config.height - 1)) {
+            this.player.increasePoints();
+            this.die();
+            return null;
         }
 
         this.updatePosition();
@@ -66,6 +67,7 @@ Crafty.c('Unit', {
 
     die: function() {
         console.log('Player '+this.player.playerNumber+' lost a unit !');
+        this.player.units.splice(this.player.units.indexOf(this), 1);
         this.destroy();
     },
 

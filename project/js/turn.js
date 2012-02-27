@@ -108,12 +108,23 @@
         move: function() {
             console.log('Move units');
             var player = this.getActivePlayer(),
-                units = player.units;
+                units = player.units.slice(),
+                unit = {},
+                res = null;
 
             for (u in units) {
-                units[u].moveForward();
-                // TODO
-                // if moved, refresh matrix of friendly units
+                unit.gridX = units[u].gridX;
+                unit.gridY = units[u].gridY;
+                res = units[u].moveForward();
+                if (res === null) {
+                    // the unit reached the opposite line and disappeared, remove it from the matrix
+                    REACH.friendlyUnits[unit.gridX][unit.gridY] = null;
+                }
+                else if (res === true) {
+                    // the unit moved, update it's position
+                    REACH.friendlyUnits[unit.gridX][unit.gridY] = null;
+                    REACH.friendlyUnits[units[u].gridX][units[u].gridY] = units[u];
+                }
             }
             return this;
         },

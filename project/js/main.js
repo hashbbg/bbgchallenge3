@@ -3,6 +3,11 @@ $(document).ready(function() {
         stageWidth = REACH.config.width * REACH.config.cell.width,
         i;
 
+    // create a function to call when a player wins
+    REACH.win = function(player) {
+        console.log('Player ' + player.playerNumber + ' won!');
+    };
+
     Crafty.init(stageWidth, stageHeight);
 
     Crafty.scene('loading', function() {
@@ -13,23 +18,13 @@ $(document).ready(function() {
     });
 
     Crafty.scene('game', function() {
-        Crafty.sprite(1, 'img/grass.png', {
-            'cell-0': [0, 0]
-        });
-        Crafty.sprite(1, 'img/stone.png', {
-            'cell-1': [0, 0]
-        });
-        Crafty.sprite(1, 'img/wood.png', {
-            'cell-2': [0, 0]
-        });
-        Crafty.sprite(1, 'img/dirt.png', {
-            'cell-3': [0, 0]
-        });
-        Crafty.sprite(1, 'img/unit-orange.png', {
-            'unit-orange': [0, 0]
-        });
-        Crafty.sprite(1, 'img/unit-blue.png', {
-            'unit-blue': [0, 0]
+        Crafty.sprite(1, 'img/sprites.png', {
+            'cell-0': [0, 0],
+            'cell-1': [REACH.config.cell.width, 0],
+            'cell-2': [2 * REACH.config.cell.width, 0],
+            'cell-3': [3 * REACH.config.cell.width, 0],
+            'unit-orange': [4 * REACH.config.cell.width, 0],
+            'unit-blue': [4 * REACH.config.cell.width, REACH.config.cell.height],
         });
 
         var map = REACH.turn = Crafty.e('Map').map(REACH.config.width, REACH.config.height);
