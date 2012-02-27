@@ -30,7 +30,7 @@ Crafty.c('Cell', {
     },
 
     highlight: function() {
-        this.sprite(0, REACH.config.cell.height, REACH.config.cell.width, REACH.config.cell.height);
+        this.sprite(0, REACH.config.cell.height *  REACH.activePlayer.playerNumber, REACH.config.cell.width, REACH.config.cell.height);
     },
 
     unhighlight: function() {

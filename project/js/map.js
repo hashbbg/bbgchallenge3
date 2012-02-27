@@ -35,7 +35,6 @@ Crafty.c('Map', {
                 {
                     var gridX = REACH.accessibleCells[x][y][0];
                     var gridY = REACH.accessibleCells[x][y][1];
-                    console.log(gridX + ',' + gridY);
                     if (visibility)
                     {
                         this.cells[gridX][gridY].highlight();

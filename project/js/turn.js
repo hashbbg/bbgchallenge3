@@ -151,10 +151,10 @@
         },
 
         startTurn: function() {
+            REACH.activePlayer = this.getActivePlayer();
             if (REACH.accessibleCells !== undefined) {
                 REACH.map.displayAccessibleCells(false);
             }
-            REACH.activePlayer = this.getActivePlayer();
             this.generateMatrixOfAccessibleCells();
             this.generateMatrixOfEnnemyUnits();
             this.generateMatrixOfFriendlyUnits();
