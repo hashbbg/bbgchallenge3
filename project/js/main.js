@@ -12,6 +12,14 @@ $(document).ready(function() {
         $('#current-player').text(turn.getActivePlayer().playerNumber);
     };
 
+    REACH.debug = function(cellTypeToDisplay) {
+        if (typeof cellTypeToDisplay === undefined || cellTypeToDisplay === false) {
+            cellTypeToDisplay = null;
+        }
+        REACH.debugCellType = cellTypeToDisplay;
+        REACH.turn.startTurn();
+    };
+
     Crafty.init(stageWidth, stageHeight);
 
     Crafty.scene('loading', function() {

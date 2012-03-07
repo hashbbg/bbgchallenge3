@@ -77,6 +77,25 @@
             return REACH.accessibleCells = accessibleCells;
         },
 
+        generateMatrixOfReachableCells: function() {
+            var reachableCells = getEmptyCellsMatrix(REACH.config.width, REACH.config.height),
+                player = this.getActivePlayer(),
+                units = player.units,
+                u, unit, cells, c, cell;
+
+            for (u in units) {
+                unit = units[u];
+                cells = unit.getListOfReachableCells();
+                console.log('Reachable cells: ' + cells);
+                for (c in cells) {
+                    cell = cells[c];
+                    reachableCells[cell.gridX][cell.gridY] = [cell.gridX, cell.gridY];
+                }
+            }
+
+            return REACH.reachableCells = reachableCells;
+        },
+
         generateMatrixOfEnnemyUnits: function() {
             var ennemyUnits = getEmptyCellsMatrix(REACH.config.width, REACH.config.height),
                 player = this.getInactivePlayer(),
@@ -156,6 +175,7 @@
                 REACH.map.displayAccessibleCells(false);
             }
             this.generateMatrixOfAccessibleCells();
+            this.generateMatrixOfReachableCells();
             this.generateMatrixOfEnnemyUnits();
             this.generateMatrixOfFriendlyUnits();
             REACH.map.displayAccessibleCells(true);

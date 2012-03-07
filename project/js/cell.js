@@ -8,7 +8,7 @@ Crafty.c('Cell', {
                 console.log('clicked '+this.gridX+', '+this.gridY);
                 if (REACH.accessibleCells[this.gridX][this.gridY] !== null) {
                     console.log('YOUPI');
-                    var unit = Crafty.e('Unit, unit-' + REACH.activePlayer.color)
+                    var unit = Crafty.e('SideUnit, unit-' + REACH.activePlayer.color)
                         .unit(REACH.activePlayer, this.gridX, this.gridY);
                     REACH.activePlayer.units.push(unit);
                     REACH.turn.nextTurn();

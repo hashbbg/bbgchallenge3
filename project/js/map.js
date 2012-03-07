@@ -27,14 +27,16 @@ Crafty.c('Map', {
     },
 
     displayAccessibleCells: function (visibility) {
-        for (var x = 0; x < REACH.accessibleCells.length; x++)
+        var cellsToHighlight = REACH.debugCellType || REACH.accessibleCells;
+
+        for (var x = 0; x < cellsToHighlight.length; x++)
         {
-            for (var y = 0; y < REACH.accessibleCells[x].length; y++)
+            for (var y = 0; y < cellsToHighlight[x].length; y++)
             {
-                if(REACH.accessibleCells[x][y] !== null)
+                if(cellsToHighlight[x][y] !== null)
                 {
-                    var gridX = REACH.accessibleCells[x][y][0];
-                    var gridY = REACH.accessibleCells[x][y][1];
+                    var gridX = cellsToHighlight[x][y][0];
+                    var gridY = cellsToHighlight[x][y][1];
                     if (visibility)
                     {
                         this.cells[gridX][gridY].highlight();

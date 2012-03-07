@@ -1,13 +1,13 @@
 Crafty.c('Unit', {
     gridX: 0,
     gridY: 0,
-    healthPoint: 1,
-    attackValue: 1,
+    healthPoint: 10,
+    attackValue: 10,
     moveY: 1,
     player: null,
 
     init: function() {
-        this.requires('2D, DOM');
+        return this.requires('2D, DOM');
     },
 
     unit: function(player, gridX, gridY) {
@@ -113,5 +113,30 @@ Crafty.c('Unit', {
 
     getListOfReachableCells: function() {
         return this.getListOfInaccessibleCells();
+    }
+});
+
+Crafty.c('SideUnit', {
+    init: function() {
+        return this.requires('Unit');
+    },
+
+    getListOfReachableCells: function() {
+        var reachableCells = [];
+
+        if (this.gridY > 0) {
+            reachableCells.push([this.gridX, this.gridY - 1]);
+        }
+        if (this.gridY > 1) {
+            reachableCells.push([this.gridX, this.gridY - 2]);
+        }
+        if (this.gridY < REACH.config.height - 1) {
+            reachableCells.push([this.gridX, this.gridY + 1]);
+        }
+        if (this.gridY < REACH.config.height - 2) {
+            reachableCells.push([this.gridX, this.gridY + 2]);
+        }
+
+        return reachableCells;
     }
 });
