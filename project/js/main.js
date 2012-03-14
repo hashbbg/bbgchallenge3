@@ -5,7 +5,8 @@ $(document).ready(function() {
 
     // create a function to call when a player wins
     REACH.win = function(player) {
-        console.log('Player ' + player.playerNumber + ' won!');
+        alert('Player ' + player.playerNumber + ' won!');
+        Crafty.scene('game');
     };
 
     REACH.updateUI = function(turn) {
