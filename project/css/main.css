@@ -56,14 +56,18 @@ p + h2 {
     margin: 20px;
 }
 
+.selected-unit {
+    border: 3px solid red;
+}
+
 #unit {
-    background-color: green;
+    background-color: #1CCD46;
 }
 
 #side-unit {
-    background-color: red;
+    background-color: #E8624B;
 }
 
 #heavy-unit {
-    background-color: pink;
+    background-color: #4B317A;
 }
