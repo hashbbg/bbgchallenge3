@@ -43,3 +43,27 @@ p + h2 {
     color: black;
     max-height: 920px;
 }
+
+/* Unit selection styles */
+#units-selection {
+    text-align: center;
+}
+
+.unit-icon {
+    height: 60px;
+    width: 60px;
+    display: inline-block;
+    margin: 20px;
+}
+
+#unit {
+    background-color: green;
+}
+
+#side-unit {
+    background-color: red;
+}
+
+#heavy-unit {
+    background-color: pink;
+}
