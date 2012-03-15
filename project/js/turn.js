@@ -167,9 +167,18 @@
             this.startTurn();
         },
 
+        clear: function() {
+            REACH.activePlayer = null;
+            REACH.accessibleCells = null;
+            REACH.reachableCells = null;
+            REACH.ennemyUnits = null;
+            REACH.friendlyUnits = null;
+            return this;
+        },
+
         startTurn: function() {
             REACH.activePlayer = this.getActivePlayer();
-            if (REACH.accessibleCells !== undefined) {
+            if (typeof REACH.accessibleCells !== undefined && REACH.accessibleCells !== null) {
                 REACH.map.displayAccessibleCells(false);
             }
             this.generateMatrixOfAccessibleCells();

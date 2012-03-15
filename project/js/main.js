@@ -6,6 +6,7 @@ $(document).ready(function() {
     // create a function to call when a player wins
     REACH.win = function(player) {
         alert('Player ' + player.playerNumber + ' won!');
+        REACH.map.displayAccessibleCells(false);
         Crafty.scene('game');
     };
 
@@ -44,6 +45,7 @@ $(document).ready(function() {
         var map = REACH.map = Crafty.e('Map').map(REACH.config.width, REACH.config.height);
 
         var turn = REACH.turn = Crafty.e('Turn');
+        turn.clear();
 
         var players = [];
         for (i = 0; i < 2; i++) {

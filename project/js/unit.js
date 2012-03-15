@@ -1,7 +1,7 @@
 Crafty.c('Unit', {
     gridX: 0,
     gridY: 0,
-    healthPoint: 10,
+    healthPoint: 15,
     attackValue: 10,
     moveY: 1,
     player: null,
@@ -115,8 +115,11 @@ Crafty.c('Unit', {
 });
 
 Crafty.c('SideUnit', {
+    healthPoint: 10,
+    attackValue: 10,
+    moveY: 1,
+
     getListOfReachableCells: function() {
-        console.log('SideUnit reachable cells');
         var reachableCells = [];
 
         if (this.gridX > 0) {
@@ -134,4 +137,10 @@ Crafty.c('SideUnit', {
 
         return reachableCells;
     }
+});
+
+Crafty.c('HeavyUnit', {
+    healthPoint: 20,
+    attackValue: 5,
+    moveY: 0,
 });
