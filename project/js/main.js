@@ -17,6 +17,7 @@ $(document).ready(function() {
         if (typeof cellTypeToDisplay === undefined || cellTypeToDisplay === false) {
             cellTypeToDisplay = null;
         }
+        REACH.map.displayAccessibleCells(false);
         REACH.debugCellType = cellTypeToDisplay;
         REACH.turn.startTurn();
     };

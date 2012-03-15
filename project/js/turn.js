@@ -86,10 +86,11 @@
             for (u in units) {
                 unit = units[u];
                 cells = unit.getListOfReachableCells();
-                console.log('Reachable cells: ' + cells);
+                console.log('Reachable cells: ');
+                console.log(cells);
                 for (c in cells) {
                     cell = cells[c];
-                    reachableCells[cell.gridX][cell.gridY] = [cell.gridX, cell.gridY];
+                    reachableCells[cell[0]][cell[1]] = cell;
                 }
             }
 
@@ -125,7 +126,6 @@
         },
 
         move: function() {
-            console.log('Move units');
             var player = this.getActivePlayer(),
                 units = player.units.slice(),
                 unit = {},
@@ -149,7 +149,6 @@
         },
 
         attack: function() {
-            console.log('Attack units');
             var player = this.getActivePlayer(),
                 units = player.units;
 
@@ -160,7 +159,6 @@
         },
 
         nextTurn: function() {
-            console.log('Next turn');
             // Move units and then make them attack
             this.move().attack();
 

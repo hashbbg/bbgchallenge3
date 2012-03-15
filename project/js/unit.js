@@ -52,7 +52,6 @@ Crafty.c('Unit', {
 
     attack: function() {
         var reachableCells = this.getListOfReachableCells();
-        console.log(reachableCells);
         for (var i = 0; i < reachableCells.length; i++)
         {
             var ennemyUnit = REACH.ennemyUnits[ reachableCells[i][0] ][ reachableCells[i][1]  ];
@@ -66,7 +65,6 @@ Crafty.c('Unit', {
     },
 
     die: function() {
-        console.log('Player '+this.player.playerNumber+' lost a unit !');
         this.player.units.splice(this.player.units.indexOf(this), 1);
         this.destroy();
     },
@@ -117,24 +115,21 @@ Crafty.c('Unit', {
 });
 
 Crafty.c('SideUnit', {
-    init: function() {
-        return this.requires('Unit');
-    },
-
     getListOfReachableCells: function() {
+        console.log('SideUnit reachable cells');
         var reachableCells = [];
 
-        if (this.gridY > 0) {
-            reachableCells.push([this.gridX, this.gridY - 1]);
+        if (this.gridX > 0) {
+            reachableCells.push([this.gridX - 1, this.gridY]);
         }
-        if (this.gridY > 1) {
-            reachableCells.push([this.gridX, this.gridY - 2]);
+        if (this.gridX > 1) {
+            reachableCells.push([this.gridX - 2, this.gridY]);
         }
-        if (this.gridY < REACH.config.height - 1) {
-            reachableCells.push([this.gridX, this.gridY + 1]);
+        if (this.gridX < REACH.config.height - 1) {
+            reachableCells.push([this.gridX + 1, this.gridY]);
         }
-        if (this.gridY < REACH.config.height - 2) {
-            reachableCells.push([this.gridX, this.gridY + 2]);
+        if (this.gridX < REACH.config.height - 2) {
+            reachableCells.push([this.gridX + 2, this.gridY]);
         }
 
         return reachableCells;

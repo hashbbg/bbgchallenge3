@@ -27,7 +27,10 @@ Crafty.c('Map', {
     },
 
     displayAccessibleCells: function (visibility) {
-        var cellsToHighlight = REACH.debugCellType || REACH.accessibleCells;
+        var cellsToHighlight = REACH[REACH.debugCellType] || REACH.accessibleCells;
+
+        console.log('Highlight cells: ' + visibility);
+        console.log(cellsToHighlight);
 
         for (var x = 0; x < cellsToHighlight.length; x++)
         {
