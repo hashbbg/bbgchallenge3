@@ -53,7 +53,7 @@ You have to do all of the actual coding, music making and art making on the game
 
 * Thinking/conceptualising
 * Drafting game design
-* Looking for tools/art/music
+* Looking for tools/art/music 
 
 #### Libs/tools
 
